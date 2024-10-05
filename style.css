@@ -1,0 +1,193 @@
+/* General Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(120deg, #f0e5e5, #f9ecec);
+    margin: 0;
+    padding: 0;
+    color: #444;
+}
+
+h1, h2 {
+    text-align: center;
+    color: #fff;
+    background-color: rgba(186, 104, 200, 0.85);
+    padding: 15px;
+    border-radius: 10px;
+    margin: 20px 0;
+    font-weight: 600;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+form {
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 25px;
+    border-radius: 12px;
+    max-width: 450px;
+    margin: 30px auto;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease-in-out;
+}
+
+form:hover {
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2);
+}
+
+label {
+    color: #8e44ad;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+input[type="text"], textarea {
+    width: 100%;
+    padding: 12px;
+    margin: 15px 0;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus, textarea:focus {
+    border-color: #8e44ad;
+    outline: none;
+}
+
+input[type="submit"], button {
+    background-color: #8e44ad;
+    color: white;
+    border: none;
+    padding: 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover, button:hover {
+    background-color: #732d91;
+}
+
+/* Simple Navigation Bar Styling */
+/* Navigation Bar Styling */
+nav {
+    background-color: #333;
+    padding: 10px;
+    text-align: center;
+}
+
+nav a {
+    color: white;
+    margin: 0 15px;
+    text-decoration: none;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+/* Flexbox container to put form and table side by side */
+.add-and-table-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+/* Form and table container styling */
+.form-container, .table-container {
+    width: 48%;
+}
+
+/* Basic table styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+/* Headings styling */
+h2 {
+    margin-top: 20px;
+}
+
+.available-products-section {
+    display: flex; /* Use flexbox to center content */
+    justify-content: center; /* Center items horizontally */
+    align-items: center; /* Center items vertically (optional) */
+    flex-direction: column; /* Stack items vertically */
+}
+
+.table-container {
+    width: 80%; /* Set width for the table container */
+    margin: 30px auto; /* Center the container */
+}
+    
+
+table {
+    width: 80%;
+    margin: 30px auto;
+    border-collapse: collapse;
+    background-color: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+table, th, td {
+    border: 1px solid #ccc;
+    text-align: center;
+    padding: 15px;
+}
+
+th {
+    background-color: rgba(186, 104, 200, 0.9);
+    color: white;
+    font-weight: 700;
+}
+
+td button {
+    margin: 5px; /* Space around buttons */
+    padding: 10px 15px; /* Ensure consistent padding */
+    background-color: #8e44ad; /* Button color */
+    color: white; /* Button text color */
+    border-radius: 6px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    border: none; /* No border for button */
+    transition: background-color 0.3s ease; /* Smooth background color change */
+    width: 100px; /* Set a fixed width for buttons */
+}
+
+td form {
+    display: inline; /* Keep forms inline to align buttons */
+}
+
+td button:hover {
+    background-color: #732d91; /* Darker color on hover */
+}
+
+#edit-form {
+    display: none;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: rgba(186, 104, 200, 0.8);
+    color: white;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
+    font-size: 14px;
+}
