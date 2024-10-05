@@ -17,8 +17,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $sql = "INSERT INTO products (name, description, price) VALUES ('$name', '$description', '$price')";
         
         if ($conn->query($sql) === TRUE) {
+            $_SESSION['message'] = "Product added successfully!"; // Set success message
             header("Location: Backend.php?section=add-product-section"); // Redirect after adding
             exit();
+        } else {
+            $_SESSION['message'] = "Error adding product: " . $conn->error; // Optional error message
         }
     } elseif ($action == 'update') {
         $id = $_POST['id'];
@@ -29,16 +32,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $sql = "UPDATE products SET name='$name', description='$description', price='$price' WHERE id='$id'";
         
         if ($conn->query($sql) === TRUE) {
-            header("Location:  Backend.php?section=available-products-section"); // Redirect after updating
+            $_SESSION['message'] = "Product updated successfully!";
+            header("Location: Backend.php?section=available-products-section"); // Redirect after updating
             exit();
         }
     } elseif ($action == 'delete') {
         $id = $_POST['id'];
 
-        $sql = "DELETE FROM products WHERE id='$id'";
+        $sql = "DELETE FROM products WHERE id=$id";
         
         if ($conn->query($sql) === TRUE) {
-            header("Location:  Backend.php?section=available-products-section"); // Redirect after deleting
+            $_SESSION['message'] = "Product deleted successfully!";
+            header("Location: Backend.php?section=available-products-section"); // Redirect after deleting
             exit();
         }
     }
@@ -89,53 +94,60 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </section>
 
     <section id="add-product-section" style="display: none;">
-    <h2>Add New Product</h2>
-    <div class="add-and-table-container">
-        <div class="form-container">
-            <form method="POST" action="Backend.php">
-                <input type="hidden" name="action" value="add">
-                <label for="name">Product Name:</label><br>
-                <input type="text" id="name" name="name" required><br>
-                <label for="description">Description:</label><br>
-                <textarea id="description" name="description" rows="4" required></textarea><br>
-                <label for="price">Price:</label><br>
-                <input type="text" id="price" name="price" required><br><br>
-                <input type="submit" value="Add Product">
-            </form>
-        </div>
-        <div class="table-container">
-            <?php
-            $sql = "SELECT * FROM products";
-            $result = $conn->query($sql);
-
-            if ($result->num_rows > 0) {
-                echo "<table>
-                        <thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>Name</th>
-                                <th>Description</th>
-                                <th>Price</th>
-                            </tr>
-                        </thead>
-                        <tbody>";
-                while ($row = $result->fetch_assoc()) {
-                    echo "<tr>
-                            <td>{$row['id']}</td>
-                            <td>{$row['name']}</td>
-                            <td>{$row['description']}</td>
-                            <td>{$row['price']}</td>
-                          </tr>";
+        <h2>Add New Product</h2>
+        <div class="add-and-table-container">
+            <div class="form-container">
+                <?php
+                // Display success message if available
+                if (isset($_SESSION['message'])) {
+                echo "<div class='alert'>" . $_SESSION['message'] . "</div>";
+                unset($_SESSION['message']); // Clear the message after displaying it
                 }
-                echo "</tbody></table>";
-            } else {
-                echo "<p>No records found</p>";
-            }
-            ?>
-        </div>
-    </div>
-</section>
+                ?>
 
+                <form method="POST" action="Backend.php">
+                    <input type="hidden" name="action" value="add">
+                    <label for="name">Product Name:</label><br>
+                    <input type="text" id="name" name="name" required><br>
+                    <label for="description">Description:</label><br>
+                    <textarea id="description" name="description" rows="4" required></textarea><br>
+                    <label for="price">Price:</label><br>
+                    <input type="text" id="price" name="price" required><br><br>
+                    <input type="submit" value="Add Product">
+                </form>
+            </div>
+            <div class="table-container">
+                <?php
+                $sql = "SELECT * FROM products";
+                $result = $conn->query($sql);
+
+                if ($result->num_rows > 0) {
+                    echo "<table>
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Name</th>
+                                    <th>Description</th>
+                                    <th>Price</th>
+                                </tr>
+                            </thead>
+                            <tbody>";
+                    while ($row = $result->fetch_assoc()) {
+                        echo "<tr>
+                                <td>{$row['id']}</td>
+                                <td>{$row['name']}</td>
+                                <td>{$row['description']}</td>
+                                <td>{$row['price']}</td>
+                              </tr>";
+                    }
+                    echo "</tbody></table>";
+                } else {
+                    echo "<p>No records found</p>";
+                }
+                ?>
+            </div>
+        </div>
+    </section>
 
     <section id="available-products-section" style="display: none;">
         <h2>All Products</h2>
@@ -199,4 +211,3 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 </body>
 </html>
-
