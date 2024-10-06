@@ -11,69 +11,50 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Condition to ADD new product
     if ($action == 'add') {
-        $name = $_POST['name'] ?? '';
-        $description = $_POST['description'] ?? '';
-        $price = $_POST['price'] ?? '';
+        $name = $_POST['name'];
+        $description = $_POST['description'];
+        $price = $_POST['price'];
 
-        // Validate inputs
-        if (empty($name) || empty($description) || !is_numeric($price)) {
-            $_SESSION['message'] = "Please fill in all fields correctly."; // Error message
+        // SQL query to insert new product into the database
+        $sql = "INSERT INTO products (name, description, price) VALUES ('$name', '$description', '$price')";
+        
+        // Execute the Query and check for success
+        if ($conn->query($sql) === TRUE) {
+            $_SESSION['message'] = "Product added successfully!"; // Set success message
+            header("Location: Backend.php?section=add-product-section"); // Redirect after adding
+            exit();
         } else {
-            // SQL query to insert new product into the database
-            $sql = "INSERT INTO products (name, description, price) VALUES ('$name', '$description', '$price')";
-            
-            // Execute the Query and check for success
-            if ($conn->query($sql) === TRUE) {
-                $_SESSION['message'] = "Product added successfully!"; // Set success message
-                header("Location: Backend.php?section=add-product-section"); // Redirect after adding
-                exit();
-            } else {
-                $_SESSION['message'] = "Error adding product: " . $conn->error; // Optional error message
-            }
+            $_SESSION['message'] = "Error adding product: " . $conn->error; // Optional error message
         }
     
     // Condition to UPDATE existing product
     } elseif ($action == 'update') {
-        $id = $_POST['id'] ?? '';
-        $name = $_POST['name'] ?? '';
-        $description = $_POST['description'] ?? '';
-        $price = $_POST['price'] ?? '';
+        $id = $_POST['id'];
+        $name = $_POST['name'];
+        $description = $_POST['description'];
+        $price = $_POST['price'];
 
-        // Validate inputs
-        if (empty($id) || empty($name) || empty($description) || !is_numeric($price)) {
-            $_SESSION['message'] = "Please fill in all fields correctly."; // Error message
-        } else {
-            // SQL query to update the product details in the database
-            $sql = "UPDATE products SET name='$name', description='$description', price='$price' WHERE id='$id'";
-            
-            // Execute the query and Check for success
-            if ($conn->query($sql) === TRUE) {
-                $_SESSION['message'] = "Product updated successfully!";
-                header("Location: Backend.php?section=available-products-section"); // Redirect after updating
-                exit();
-            } else {
-                $_SESSION['message'] = "Error updating product: " . $conn->error; // Optional error message
-            }
+        // SQL query to update the product details in the database
+        $sql = "UPDATE products SET name='$name', description='$description', price='$price' WHERE id='$id'";
+        
+        // Execute the query and Check for success
+        if ($conn->query($sql) === TRUE) {
+            $_SESSION['message'] = "Product updated successfully!";
+            header("Location: Backend.php?section=available-products-section"); // Redirect after updating
+            exit();
         }
     
     // Condition to DELETE product
     } elseif ($action == 'delete') {
-        $id = $_POST['id'] ?? '';
+        $id = $_POST['id'];
 
-        // Validate input
-        if (empty($id)) {
-            $_SESSION['message'] = "Invalid product ID."; // Error message
-        } else {
-            // SQL query to delete the product in the database
-            $sql = "DELETE FROM products WHERE id=$id";
-            
-            if ($conn->query($sql) === TRUE) {
-                $_SESSION['message'] = "Product deleted successfully!";
-                header("Location: Backend.php?section=available-products-section"); // Redirect after deleting
-                exit();
-            } else {
-                $_SESSION['message'] = "Error deleting product: " . $conn->error; // Optional error message
-            }
+        // SQL query to delete the product in the database
+        $sql = "DELETE FROM products WHERE id=$id";
+        
+        if ($conn->query($sql) === TRUE) {
+            $_SESSION['message'] = "Product deleted successfully!";
+            header("Location: Backend.php?section=available-products-section"); // Redirect after deleting
+            exit();
         }
     }
 }
