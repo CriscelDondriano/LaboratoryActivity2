@@ -1,31 +1,31 @@
 /* General Styles */
 body {
-    font-family: 'Poppins', sans-serif;
-    background: linear-gradient(120deg, #f0e5e5, #f9ecec);
-    margin: 0;
-    padding: 0;
-    color: #444;
+    font-family: 'Poppins', sans-serif; /* Font family for the body */
+    background: linear-gradient(120deg, #f0e5e5, #f9ecec); /* Background gradient */
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+    color: #444; /* Text color */
 }
 
 h1, h2 {
-    text-align: center;
-    color: #fff;
-    background-color: rgba(186, 104, 200, 0.85);
-    padding: 15px;
-    border-radius: 10px;
-    margin: 20px 0;
-    font-weight: 600;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    text-align: center; /* Center align headings */
+    color: #fff; /* White text color */
+    background-color: rgba(186, 104, 200, 0.85); /* Background color with transparency */
+    padding: 15px; /* Padding around headings */
+    border-radius: 10px; /* Rounded corners */
+    margin: 20px 0; /* Margin above and below */
+    font-weight: 600; /* Bold font weight */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Shadow effect */
 }
 
 form {
-    background-color: rgba(255, 255, 255, 0.95);
-    padding: 25px;
-    border-radius: 12px;
-    max-width: 450px;
-    margin: 30px auto;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-    transition: all 0.3s ease-in-out;
+    background-color: rgba(255, 255, 255, 0.95); /* Form background color */
+    padding: 25px; /* Padding inside the form */
+    border-radius: 12px; /* Rounded corners */
+    max-width: 450px; /* Maximum width of the form */
+    margin: 30px auto; /* Center the form */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Shadow effect */
+    transition: all 0.3s ease-in-out; /* Smooth transition for hover effects */
 }
 
 form:hover {
@@ -72,9 +72,9 @@ input[type="submit"]:hover, button:hover {
 /* Simple Navigation Bar Styling */
 /* Navigation Bar Styling */
 nav {
-    background-color: #333;
-    padding: 10px;
-    text-align: center;
+    background-color: #333; /* Dark background for navigation */
+    padding: 10px; /* Padding inside the navigation */
+    text-align: center; /* Center align navigation items */
 }
 
 nav a {
@@ -124,9 +124,9 @@ h2 {
 }
 
 .available-products-section {
-    display: flex; /* Use flexbox to center content */
+    display: flex; /* Use flexbox for layout */
     justify-content: center; /* Center items horizontally */
-    align-items: center; /* Center items vertically (optional) */
+    align-items: center; /* Center items vertically */
     flex-direction: column; /* Stack items vertically */
 }
 
@@ -181,13 +181,13 @@ td button:hover {
 }
 
 footer {
-    text-align: center;
-    padding: 20px;
-    background-color: rgba(186, 104, 200, 0.8);
-    color: white;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
-    font-size: 14px;
+    text-align: center; /* Center align footer text */
+    padding: 20px; /* Padding inside the footer */
+    background-color: rgba(186, 104, 200, 0.8); /* Footer background color */
+    color: white; /* White text color */
+    position: fixed; /* Fixed position at the bottom */
+    bottom: 0; /* Align to the bottom */
+    width: 100%; /* Full width */
+    box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1); /* Shadow effect */
+    font-size: 14px; /* Font size for footer text */
 }
