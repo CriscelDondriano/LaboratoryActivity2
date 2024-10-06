@@ -150,7 +150,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
         </div>
     </section>
-
+            <!-- all products table -->
     <section id="available-products-section" style="display: none;">
         <h2>All Products</h2>
         <div class="table-container">
