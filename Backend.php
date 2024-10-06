@@ -101,7 +101,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 // Display success message if available
                 if (isset($_SESSION['message'])) {
                 echo "<div class='alert'>" . $_SESSION['message'] . "</div>";
-                unset($_SESSION['message']); // Clear the message after displaying it
+                unset($_SESSION['message']); // Clear the messages after displaying it
                 }
                 ?>
 
