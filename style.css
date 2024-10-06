@@ -224,7 +224,7 @@ td button {
     /* No border for button */
     transition: background-color 0.3s ease;
     /* Smooth background color change */
-    width: 100px;
+    width: 300px;
     /* Set a fixed width for buttons */
 }
 
