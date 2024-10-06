@@ -175,7 +175,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             <td>{$row['description']}</td>
                             <td>{$row['price']}</td>
                             <td>
-                                <button onclick=\"showEditForm({$row['id']}, '{$row['name']}', '{$row['description']}', '{$row['price']}')\">Edit</button> |
+                                <button onclick=\"showEditForm({$row['id']}, '{$row['name']}', '{$row['description']}', '{$row['price']}')\">Edit</button>
                                 <form method='POST' action='Backend.php' style='display:inline;'>
                                     <input type='hidden' name='action' value='delete'>
                                     <input type='hidden' name='id' value='{$row['id']}'>
