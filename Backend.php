@@ -100,21 +100,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <?php
                 // Display success message if available
                 if (isset($_SESSION['message'])) {
-                echo "<div class='alert'>" . $_SESSION['message'] . "</div>";
-                unset($_SESSION['message']); // Clear the message after displaying it
+                    echo "<div class='alert'>" . $_SESSION['message'] . "</div>";
+                    unset($_SESSION['message']); // Clear the message after displaying it
                 }
                 ?>
 
-                <form method="POST" action="Backend.php">
-                    <input type="hidden" name="action" value="add">
-                    <label for="name">Product Name:</label><br>
-                    <input type="text" id="name" name="name" required><br>
-                    <label for="description">Description:</label><br>
-                    <textarea id="description" name="description" rows="4" required></textarea><br>
-                    <label for="price">Price:</label><br>
-                    <input type="text" id="price" name="price" required><br><br>
-                    <input type="submit" value="Add Product">
-                </form>
+                <div class="form-section-container"> <!-- Added container for styling -->
+                    <form method="POST" action="Backend.php">
+                        <input type="hidden" name="action" value="add">
+                        <label for="name">Product Name:</label><br>
+                        <input type="text" id="name" name="name" required><br>
+                        <label for="description">Description:</label><br>
+                        <textarea id="description" name="description" rows="4" required></textarea><br>
+                        <label for="price">Price:</label><br>
+                        <input type="text" id="price" name="price" required><br><br>
+                        <input type="submit" value="Add Product">
+                    </form>
+                </div> <!-- End of container -->
             </div>
             <div class="table-container">
                 <?php
@@ -179,7 +181,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                 <form method='POST' action='Backend.php' style='display:inline;'>
                                     <input type='hidden' name='action' value='delete'>
                                     <input type='hidden' name='id' value='{$row['id']}'>
-                                    <input type='submit' value='Delete'>
+                                    <input type='submit' class='delete-button' value='Delete'>
                                 </form>
                             </td>
                           </tr>";
@@ -195,17 +197,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <section id="edit-product-section" style="display: none;">
         <h2>Edit Product</h2>
         <div class="form-container">
-            <form method="POST" action="Backend.php">
-                <input type="hidden" name="action" value="update">
-                <input type="hidden" id="edit-id" name="id">
-                <label for="edit-name">Product Name:</label><br>
-                <input type="text" id="edit-name" name="name" required><br>
-                <label for="edit-description">Description:</label><br>
-                <textarea id="edit-description" name="description" rows="4" required></textarea><br>
-                <label for="edit-price">Price:</label><br>
-                <input type="text" id="edit-price" name="price" required><br><br>
-                <input type="submit" value="Update Product">
-            </form>
+            <div class="form-section-container"> <!-- Added container for styling -->
+                <form method="POST" action="Backend.php">
+                    <input type="hidden" name="action" value="update">
+                    <input type="hidden" id="edit-id" name="id">
+                    <label for="edit-name">Product Name:</label><br>
+                    <input type="text" id="edit-name" name="name" required><br>
+                    <label for="edit-description">Description:</label><br>
+                    <textarea id="edit-description" name="description" rows="4" required></textarea><br>
+                    <label for="edit-price">Price:</label><br>
+                    <input type="text" id="edit-price" name="price" required><br><br>
+                    <input type="submit" value="Update Product">
+                </form>
+            </div> <!-- End of container -->
         </div>
     </section>
 
