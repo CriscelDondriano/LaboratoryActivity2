@@ -209,7 +209,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             </td>
                           </tr>";
                 }
-                echo "</tbody></table>"; // end of table
+                echo "</tbody></table>"; // End of table
             } else {
                 echo "<p>No records found</p>"; // Message if no products are found
             }
