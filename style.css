@@ -1,4 +1,5 @@
 /* General Styles */
+
 body {
     font-family: 'Poppins', sans-serif;
     background: linear-gradient(120deg, #f0e5e5, #f9ecec);
@@ -7,7 +8,8 @@ body {
     color: #444;
 }
 
-h1, h2 {
+h1,
+h2 {
     text-align: center;
     color: #fff;
     background-color: rgba(186, 104, 200, 0.85);
@@ -38,9 +40,10 @@ label {
     font-size: 14px;
 }
 
-input[type="text"], textarea {
+input[type="text"],
+textarea {
     width: 100%;
-    padding: 12px;
+    padding: 3px;
     margin: 15px 0;
     border: 1px solid #ddd;
     border-radius: 6px;
@@ -48,12 +51,14 @@ input[type="text"], textarea {
     transition: border-color 0.3s ease;
 }
 
-input[type="text"]:focus, textarea:focus {
+input[type="text"]:focus,
+textarea:focus {
     border-color: #8e44ad;
     outline: none;
 }
 
-input[type="submit"], button {
+input[type="submit"],
+button {
     background-color: #8e44ad;
     color: white;
     border: none;
@@ -65,12 +70,22 @@ input[type="submit"], button {
     transition: background-color 0.3s ease;
 }
 
-input[type="submit"]:hover, button:hover {
+input[type="submit"] {
+    width: 300px;
+    /* Adjusted width for the Delete button */
+}
+
+input[type="submit"]:hover,
+button:hover {
     background-color: #732d91;
 }
 
+
 /* Simple Navigation Bar Styling */
+
+
 /* Navigation Bar Styling */
+
 nav {
     background-color: #333;
     padding: 10px;
@@ -89,26 +104,34 @@ nav a:hover {
     text-decoration: underline;
 }
 
+
 /* Flexbox container to put form and table side by side */
+
 .add-and-table-container {
     display: flex;
     justify-content: space-between;
     margin-top: 20px;
 }
 
+
 /* Form and table container styling */
-.form-container, .table-container {
+
+.form-container,
+.table-container {
     width: 48%;
 }
 
+
 /* Basic table styling */
+
 table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 20px;
 }
 
-th, td {
+th,
+td {
     border: 1px solid #ddd;
     padding: 10px;
     text-align: left;
@@ -118,23 +141,30 @@ th {
     background-color: #f2f2f2;
 }
 
+
 /* Headings styling */
+
 h2 {
     margin-top: 20px;
 }
 
 .available-products-section {
-    display: flex; /* Use flexbox to center content */
-    justify-content: center; /* Center items horizontally */
-    align-items: center; /* Center items vertically (optional) */
-    flex-direction: column; /* Stack items vertically */
+    display: flex;
+    /* Use flexbox to center content */
+    justify-content: center;
+    /* Center items horizontally */
+    align-items: center;
+    /* Center items vertically (optional) */
+    flex-direction: column;
+    /* Stack items vertically */
 }
 
 .table-container {
-    width: 80%; /* Set width for the table container */
-    margin: 30px auto; /* Center the container */
+    width: 80%;
+    /* Set width for the table container */
+    margin: 30px auto;
+    /* Center the container */
 }
-    
 
 table {
     width: 80%;
@@ -144,10 +174,16 @@ table {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-table, th, td {
+table,
+th,
+td {
     border: 1px solid #ccc;
     text-align: center;
     padding: 15px;
+}
+
+td:nth-child(5) {
+    width: 150px;
 }
 
 th {
@@ -157,23 +193,34 @@ th {
 }
 
 td button {
-    margin: 5px; /* Space around buttons */
-    padding: 10px 15px; /* Ensure consistent padding */
-    background-color: #8e44ad; /* Button color */
-    color: white; /* Button text color */
-    border-radius: 6px; /* Rounded corners */
-    cursor: pointer; /* Pointer cursor on hover */
-    border: none; /* No border for button */
-    transition: background-color 0.3s ease; /* Smooth background color change */
-    width: 100px; /* Set a fixed width for buttons */
+    margin: 10px;
+    /* Space around buttons */
+    padding: 15px 5px;
+    /* Ensure consistent padding */
+    background-color: #8e44ad;
+    /* Button color */
+    color: white;
+    /* Button text color */
+    border-radius: 6px;
+    /* Rounded corners */
+    cursor: pointer;
+    /* Pointer cursor on hover */
+    border: none;
+    /* No border for button */
+    transition: background-color 0.3s ease;
+    /* Smooth background color change */
+    width: 100px;
+    /* Set a fixed width for buttons */
 }
 
 td form {
-    display: inline; /* Keep forms inline to align buttons */
+    display: inline;
+    /* Keep forms inline to align buttons */
 }
 
 td button:hover {
-    background-color: #732d91; /* Darker color on hover */
+    background-color: #732d91;
+    /* Darker color on hover */
 }
 
 #edit-form {
