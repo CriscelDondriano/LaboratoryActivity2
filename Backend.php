@@ -173,7 +173,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     <!-- AVAILABLE PRODUCTS SECTION -->
     <section id="available-products-section" style="display: none;">
-        <h2>All Products</h2>
+        <h2>Mga Products</h2>
         <div class="table-container">
             <?php
 
